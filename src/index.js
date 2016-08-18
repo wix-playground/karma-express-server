@@ -29,7 +29,7 @@ module.exports = {
       // default config
       config = config || {};
       config = config.expressServer || {};
-      let configDefaults = {
+      var configDefaults = {
         callback: () => {},
         accessControlAllowOrigin: 'http://localhost:9876',
         accessControlAllowCredentials: 'true',
@@ -42,7 +42,7 @@ module.exports = {
         serverPort: 9877,
         extensions: []
       };
-      let conf = {};
+      var conf = {};
       Object.assign(conf, configDefaults, config);
 
       // input validation
@@ -56,9 +56,9 @@ module.exports = {
       }
 
       // construct express server
-      let log = logger.create('karma-express-server');
+      var log = logger.create('karma-express-server');
       log.info('Starting express server...');
-      let app = express();
+      var app = express();
       app.use(bodyParser.json());
       app.use(function(req, res, next) {
         res.set('Access-Control-Allow-Credentials',
