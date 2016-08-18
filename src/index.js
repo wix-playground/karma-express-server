@@ -30,7 +30,7 @@ module.exports = {
       config = config || {};
       config = config.expressServer || {};
       var configDefaults = {
-        callback: () => {},
+        callback: function(){},
         accessControlAllowOrigin: 'http://localhost:9876',
         accessControlAllowCredentials: 'true',
         accessControlAllowMethods: 'GET, PUT, POST, DELETE, OPTIONS',
@@ -80,14 +80,14 @@ module.exports = {
       if (conf.protocol === 'https') {
         var httpServer = https
         .createServer(conf.httpsServerOptions, app)
-        .listen(conf.serverPort, () => {
+        .listen(conf.serverPort, function(){
           log.info('Listening on port %d...', conf.serverPort);
           conf.callback(httpServer);
         });
       } else {
         var httpServer = http
         .createServer(app)
-        .listen(conf.serverPort, () => {
+        .listen(conf.serverPort, function(){
           log.info('Listening on port %d...', conf.serverPort);
           conf.callback(httpServer);
         });
