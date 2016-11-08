@@ -82,3 +82,4 @@ All [Config properties](http://coreyferguson.github.io/karma-express-server/karm
 ## Contribution
 
 See [Contribution](./CONTRIBUTE.md) documentation for build, test and publish details.
+
